@@ -1,0 +1,2 @@
+1. Process dataset after defining the goal (which should be = be human from point a to b)
+2. 
