@@ -1,2 +1,24 @@
 1. Process dataset after defining the goal (which should be = be human from point a to b)
-2. 
+2. generate fake trajectories from a to b following same objectives as dataset (ideally with same duration and step count)
+
+------ DONE up to here
+
+3. train discriminator on real and synthetic trajectories, if it reaches high acc add more difficult bot trajectories.
+4. if we trained xgboost check feature importances to cehck if it didnt collpase, if GRU check for exploding gradients or overfitting.
+
+OTHER STUFF TO DO
+- normalize features WHICH atm should not be important for XGDBoost if tree based as splits are done between a single category 
+ but it is for GAN, so either we clip them (as dt 0.0001 makes speed high asf) or log scale them.
+
+-------------------------------------
+
+IF instead we want to frame this as a spoofing detection system based on mouse dynamics:
+- We dont need the bots file and script  (but good to keep in case we want to still flag automatic sources as takeover)
+This olds for standard spoofing.
+If we want to do on our features:
+    - pretrain the GAN on balabit_trian_steps.csv to learn human patters
+    - Fine tune the critic (not gen) in the Gan on our strokes (recorded samples)
+    - So critic instructs generator to adapt to my style 
+
+
+MICHE se vuoi i file del dataset processati runna sia process_balabit.py che bots.py
